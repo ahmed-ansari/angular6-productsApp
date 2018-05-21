@@ -7,4 +7,4 @@ export interface IProduct {
     description: String;
     starRating: number;
     imageUrl: String;
-}
+}  
