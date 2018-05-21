@@ -1,0 +1,42 @@
+<p>
+  {{pageTitle}}
+</p>
+<div class="row">
+  <div class="col"><button class="btn btn-primary" (click)="toggleImage()">{{showImage ? 'Hide' : 'Show '}}  Image</button>
+  </div>
+  <div class="col">
+      <input type="search" [(ngModel)]="listFilter" class="form-control" placeholder="Enter product to search">
+  </div>
+  <div class="col"></div>
+  <div class="col"></div>
+</div>
+<div class='table-responsive'>
+  <table class="table table-hover" *ngIf="products && products.length > 0">
+    <thead>
+      <tr>
+        <th scope="col">Show Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Code</th>
+        <th scope="col">Available</th>
+        <th>Price</th>
+        <th>starRating</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of filteredProducts">
+        <td >
+          <img  *ngIf="showImage" [src]="product.imageUrl" [title]="product.productName" [style.width.px]="imageWidth" 
+          [style.margin.px]="imageMargin">
+        </td>
+        <td> <span (click)="onSelect(product)">{{ product.productName}} </span></td>
+        <td>{{ product.productCode | lowercase | convertToSpaces :'-'}}</td>
+        <td>{{ product.releaseDate}}</td>
+        <td>{{ product.price | currency:'USD':true:'1.2-2'}}</td>
+        <!-- <td>{{ product.starRating}}</td> -->
+        <td> <app-star [rating]="product.starRating" (ratingClicked)="onRatingClicked($event)"></app-star> </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+
