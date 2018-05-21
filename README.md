@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Productsapp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0.
@@ -29,4 +29,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 =======
 # angular6-productsApp
 angular 6 product list App
->>>>>>> cb08ff7575a84c0852d2527c832c7a4b4852f003
+
