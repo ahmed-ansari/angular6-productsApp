@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { IProduct } from './product';
 import {HttpClient, HttpErrorResponse}  from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, of} from 'rxjs';
 import {map, catchError,tap} from 'rxjs/operators';
+// import 'rxjs/add/observable/of';
 // import 'rxjs/add/operator/throw';
 // import 'rxjs/Rx';
 // import 'rxjs/add/operator/catch';
@@ -24,8 +25,27 @@ export class ProductService {
     ;
   }
 
+  getProduct(id):Observable<IProduct> {
+    return of(this.initializeProduct());
+  }
+
   private handleError(err: HttpErrorResponse) {
     console.log(err.message)
     return Observable.throw(err.message)
   }
+  initializeProduct(): IProduct {
+    // Return an initialized object
+    return {
+      productId: 0,
+        productName: "Cup",
+        productCode: "cup-code",
+        // category: null,
+        // tags: [],
+        releaseDate: null,
+        price: null,
+        description: null,
+        starRating: null,
+        imageUrl: null
+    };
+}
 }
