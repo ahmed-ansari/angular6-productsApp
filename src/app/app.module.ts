@@ -8,8 +8,10 @@ import { AppComponent } from './app.component';
 // import { StarComponent } from './shared/star/star.component';
 // import { ProductDetailComponent } from './product-list/product-detail.component';
 import { WelcomeComponent } from './welcome/welcome.component';
-import {RouterModule,Routes} from '@angular/router'
+
 import { ProductsModule } from './product-list/products.module';
+import { LoginComponent } from './login/login.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,20 +20,17 @@ import { ProductsModule } from './product-list/products.module';
     // ConvertToSpacesPipe,
     // StarComponent,
     // ProductDetailComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    LoginComponent
   ],
   imports: [
     // BrowserModule,
     // FormsModule,
     HttpClientModule,
     ProductsModule,
-    RouterModule.forRoot([
-      // {path: 'products', component: ProductListComponent},
-      // {path: 'products/:id', component: ProductDetailComponent},
-      {path: 'welcome', component: WelcomeComponent},
-      {path: '', redirectTo: '/welcome', pathMatch: 'full'}
-    ],
-    {enableTracing: true})
+    AppRoutingModule
+   
+    // ,{enableTracing: true})
   ],
   providers: [ ],
   bootstrap: [AppComponent]
